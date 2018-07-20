@@ -1,0 +1,6 @@
+framework module Pods_a_chursin {
+  umbrella header "Pods-a.chursin-umbrella.h"
+
+  export *
+  module * { export * }
+}

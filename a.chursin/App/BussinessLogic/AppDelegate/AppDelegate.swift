@@ -12,10 +12,53 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let requestFactory = RequestFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let auth = requestFactory.makeAuthRequestFactory()
+        auth.login(userName: "Somebody", password: "mypassword") {response in
+            switch response.result
+            {
+            case .success(let login):
+                print("LOGIN: \(login)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        auth.logout() {response in
+            switch response.result
+            {
+            case .success(let logout):
+                print("\n logout: \(logout)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        let accaunt: AccauntRequestFactory = requestFactory.makeAccauntRequestFactory()
+        let userData =  UserData(id: 123, username: "username", password: "password", email: "fuck@android", gender: "m", creditCard: "2312 3334 2342 2342", bio: "bio")
+        
+        accaunt.register(userData: userData) {response in
+            switch response.result
+            {
+            case .success(let reg):
+                print("/n reg: \(reg)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        accaunt.changeOptions(userData: userData) {response in
+            switch response.result
+            {
+            case .success(let reg):
+                print("/n changeOptions: \(reg)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
         return true
     }
 

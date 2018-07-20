@@ -1,0 +1,6 @@
+framework module Pods_a_chursinUITests {
+  umbrella header "Pods-a.chursinUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
