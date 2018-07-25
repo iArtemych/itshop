@@ -8,18 +8,40 @@
 
 import Foundation
 import Alamofire
+import XCTest
+import OHHTTPStubs
+@testable import a_chursin
 
-class RequestFactory
+enum ApiErrorStub: Error
 {
+    case fatalerror
+}
+
+struct ErrorParser​Stub: AbstractErrorParser
+{
+    func parse(_ result: Error) -> Error {
+        return ApiErrorStub.fatalerror
+    }
+
+    func parse(response: HTTPURLResponse?, data: Data?, error: Error?) -> Error?
+    {
+        return error
+    }
+}
+
+
+
+class RequestFactoryMock
+{
+    
     func makeErrorParser() -> AbstractErrorParser
     {
-        return ErrorParser​()
+        return ErrorParser​Stub()
     }
     
     lazy var commonSessionManager: SessionManager = {
-        let configuration = URLSessionConfiguration.default
-        configuration.httpShouldSetCookies = false
-        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        let configuration = URLSessionConfiguration.ephemeral
+        OHHTTPStubs.isEnabled(for: configuration)
         let manager = SessionManager(configuration: configuration)
         return manager
     }()
@@ -40,7 +62,7 @@ class RequestFactory
             errorParser: errorParser,
             sessionManager: commonSessionManager,
             queue: sessionQueue
-            )
+        )
     }
     func makeProductRequestFactory() -> ProductRequestFactory
     {

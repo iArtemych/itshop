@@ -57,7 +57,7 @@ extension Auth: AuthRequestFactory
         }
     }
     
-    //---
+    
     struct Logout: RequestRouter
     {
         let baseURL: URL
@@ -69,6 +69,6 @@ extension Auth: AuthRequestFactory
             return ["id_user": id,]
         }
     }
-    //--
+    
 }
 

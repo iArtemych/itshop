@@ -16,6 +16,6 @@ protocol AuthRequestFactory
         password: String,
         comletionHandler: @escaping (DataResponse<LoginResult>) -> Void
     )
-    //--
+    
     func logout(comletionHandler: @escaping (DataResponse<LogoutResult>) -> Void)
 }

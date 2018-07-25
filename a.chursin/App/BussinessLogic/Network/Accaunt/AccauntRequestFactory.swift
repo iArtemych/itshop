@@ -23,6 +23,3 @@ protocol AccauntRequestFactory
 }
 
 
-
-//    "id_user" : 123
-

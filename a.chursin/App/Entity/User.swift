@@ -14,7 +14,6 @@ struct LoginResult : Codable
     let user: User
 }
 
-//--
 struct LogoutResult : Codable
 {
     let result: Int
@@ -28,7 +27,6 @@ struct ChangeResult : Codable
 {
     let result: Int
 }
-//--
 
 
 struct User: Codable
