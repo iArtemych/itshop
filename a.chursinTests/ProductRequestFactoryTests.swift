@@ -1,11 +1,3 @@
-//
-//  ProductRequestFactoryTests.swift
-//  a.chursinTests
-//
-//  Created by Артем Чурсин on 25.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
 import Foundation
 import Alamofire
 import XCTest

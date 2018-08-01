@@ -1,10 +1,3 @@
-//
-//  ResponseCodableTests.swift
-//  a.chursinTests
-//
-//  Created by Артем Чурсин on 21.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
 import Alamofire
 import Foundation
 import XCTest
@@ -21,6 +14,7 @@ struct PostStub: Codable
 
 class ResponseCodableTests: XCTestCase
 {
+    
     var errorParser: ErrorParser​Stub!
     
     override func setUp()

@@ -1,11 +1,4 @@
-//
-//  User.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 15.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
+//Сущность пользователь
 import Foundation
 
 struct LoginResult : Codable

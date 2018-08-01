@@ -1,11 +1,4 @@
-//
-//  Product.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 25.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
+// Класс в котором создаются и настраиваются запросы к API для работы с товарами
 import Foundation
 import Alamofire
 
@@ -41,6 +34,7 @@ extension Product
             ]
         }
     }
+    
     struct ItemResp: RequestRouter
     {
         let baseURL: URL

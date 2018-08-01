@@ -1,11 +1,4 @@
-//
-//  ProductRequestFactory.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 25.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
+// фабрика забросов к товарам
 import Foundation
 import Alamofire
 

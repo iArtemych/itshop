@@ -1,11 +1,4 @@
-//
-//  RequestFactory.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 15.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
+// Фабрика созающая запросы к API
 import Foundation
 import Alamofire
 
@@ -46,6 +39,25 @@ class RequestFactory
     {
         let errorParser = makeErrorParser()
         return Product(
+            errorParser: errorParser,
+            sessionManager: commonSessionManager,
+            queue: sessionQueue
+        )
+    }
+    
+    func makeReviewRequestFactory() -> ReviewsReqestFactory
+    {
+        let errorParser = makeErrorParser()
+        return Reviews(
+            errorParser: errorParser,
+            sessionManager: commonSessionManager,
+            queue: sessionQueue
+        )
+    }
+    func makeBasketRequestFactory() -> BasketReqestFactory
+    {
+        let errorParser = makeErrorParser()
+        return Basket(
             errorParser: errorParser,
             sessionManager: commonSessionManager,
             queue: sessionQueue

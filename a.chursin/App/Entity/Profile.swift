@@ -1,11 +1,4 @@
-//
-//  Profile.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 19.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
+// Структура данных пользователля
 import Foundation
 
 struct UserData

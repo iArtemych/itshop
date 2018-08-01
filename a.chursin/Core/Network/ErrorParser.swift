@@ -1,11 +1,4 @@
-//
-//  ErrorParser.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 14.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
+//логика парсинга ошибок
 import Foundation
 
 class ErrorParser​: AbstractErrorParser

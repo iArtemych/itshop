@@ -1,11 +1,3 @@
-//
-//  AuthRequestFactoryTests.swift
-//  a.chursinTests
-//
-//  Created by Артем Чурсин on 21.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
 import Alamofire
 import Foundation
 import XCTest
@@ -17,6 +9,7 @@ import OHHTTPStubs
 class AuthRequestFactoryTests: XCTestCase
 {
     var auth: AuthRequestFactory!
+    var userData: UserData!
     
     override func setUp()
     {
@@ -24,6 +17,7 @@ class AuthRequestFactoryTests: XCTestCase
         
         let factory = RequestFactoryMock()
         auth = factory.makeAuthRequestFactory()
+        userData =  UserData(id: 123, username: "username", password: "password", email: "fuck@android", gender: "m", creditCard: "2312 3334 2342 2342", bio: "bio")
     }
     
     override func tearDown()
@@ -42,7 +36,7 @@ class AuthRequestFactoryTests: XCTestCase
         
         var loginResult: LoginResult?
         
-        auth.login(userName: "Somebody", password: "mypassword"){
+        auth.login(login: "Somebody", password: "password"){
             result in
             loginResult = result.value
             exp.fulfill()
@@ -60,7 +54,7 @@ class AuthRequestFactoryTests: XCTestCase
         
         var logoutResult: LogoutResult?
 
-        auth.logout(){
+        auth.logout(userData: userData){
             result in
             logoutResult = result.value
             exp.fulfill()

@@ -1,11 +1,4 @@
-//
-//  Accaunt.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 19.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
+// Класс в котором создаются и настраиваются запросы к API для работы с аккаунтом
 import Foundation
 import Alamofire
 

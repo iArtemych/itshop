@@ -1,11 +1,3 @@
-//
-//  RequestFactory.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 15.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
 import Foundation
 import Alamofire
 import XCTest
@@ -16,20 +8,6 @@ enum ApiErrorStub: Error
 {
     case fatalerror
 }
-
-struct ErrorParser​Stub: AbstractErrorParser
-{
-    func parse(_ result: Error) -> Error {
-        return ApiErrorStub.fatalerror
-    }
-
-    func parse(response: HTTPURLResponse?, data: Data?, error: Error?) -> Error?
-    {
-        return error
-    }
-}
-
-
 
 class RequestFactoryMock
 {
@@ -68,6 +46,24 @@ class RequestFactoryMock
     {
         let errorParser = makeErrorParser()
         return Product(
+            errorParser: errorParser,
+            sessionManager: commonSessionManager,
+            queue: sessionQueue
+        )
+    }
+    func makeReviewRequestFactory() -> ReviewsReqestFactory
+    {
+        let errorParser = makeErrorParser()
+        return Reviews(
+            errorParser: errorParser,
+            sessionManager: commonSessionManager,
+            queue: sessionQueue
+        )
+    }
+    func makeBasketRequestFactory() -> BasketReqestFactory
+    {
+        let errorParser = makeErrorParser()
+        return Basket(
             errorParser: errorParser,
             sessionManager: commonSessionManager,
             queue: sessionQueue
