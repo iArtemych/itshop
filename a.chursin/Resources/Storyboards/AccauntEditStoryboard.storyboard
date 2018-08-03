@@ -35,8 +35,8 @@
                                             <constraint firstAttribute="width" id="BEP-0G-4y4"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loY-2T-27y">
-                                        <rect key="frame" x="101" y="30" width="173" height="31"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accaunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loY-2T-27y">
+                                        <rect key="frame" x="131.33333333333334" y="30" width="112.66666666666666" height="31"/>
                                         <fontDescription key="fontDescription" name="Verdana-BoldItalic" family="Verdana" pointSize="25"/>
                                         <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5A-qx-A08">
                                         <rect key="frame" x="157" y="276" width="61" height="24"/>
@@ -119,6 +119,9 @@
                                             <segment title="Male"/>
                                             <segment title="Female"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="segmentedGenderAction:" destination="KBx-gA-CX5" eventType="valueChanged" id="2fl-R4-PMz"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zgc-OX-TP1">
                                         <rect key="frame" x="87.666666666666686" y="445" width="200" height="60"/>
@@ -131,9 +134,9 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-oA-B0N">
-                                        <rect key="frame" x="152" y="515" width="71" height="33"/>
+                                        <rect key="frame" x="163.66666666666666" y="515" width="48" height="33"/>
                                         <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="17"/>
-                                        <state key="normal" title="Register"/>
+                                        <state key="normal" title="Apply"/>
                                         <connections>
                                             <action selector="registerActionButton:" destination="KBx-gA-CX5" eventType="touchUpInside" id="NQS-ED-pAA"/>
                                         </connections>
@@ -142,6 +145,9 @@
                                         <rect key="frame" x="13" y="8" width="61" height="33"/>
                                         <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="17"/>
                                         <state key="normal" title="&lt; Back"/>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="KBx-gA-CX5" eventType="touchUpInside" id="8tI-di-99V"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.89411764709999997" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -205,7 +211,8 @@
                         <outlet property="passwordInput" destination="TjX-vj-DPu" id="7UY-VP-7Ky"/>
                         <outlet property="registerButton" destination="Dha-oA-B0N" id="Z14-EF-cnJ"/>
                         <outlet property="scrollView" destination="eFK-WU-jZb" id="df9-DH-qfG"/>
-                        <segue destination="5M1-RD-JFM" kind="unwind" identifier="registerEnd" unwindAction="unwindFunctoLoginWithUnwindSegue:" id="Odj-hS-avx"/>
+                        <segue destination="5M1-RD-JFM" kind="unwind" identifier="registerEnd" unwindAction="unwindFunctoLoginWithUnwindSegue:" id="Wds-ua-te7"/>
+                        <segue destination="5M1-RD-JFM" kind="unwind" identifier="editEnd" unwindAction="unwindFuncToUserDataWithUnwindSegue:" id="CQm-l5-3FD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VV4-A6-JPI" userLabel="First Responder" sceneMemberID="firstResponder"/>

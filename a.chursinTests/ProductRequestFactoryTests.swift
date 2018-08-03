@@ -4,8 +4,6 @@ import XCTest
 import OHHTTPStubs
 @testable import a_chursin
 
-
-
 class ProductRequestFactoryTests: XCTestCase
 {
     var product: ProductRequestFactory!
@@ -62,7 +60,6 @@ class ProductRequestFactoryTests: XCTestCase
             itemResult = result.value
             exp.fulfill()
         }
-        
         wait(for: [exp], timeout: 1)
         
         XCTAssertNotNil(itemResult)

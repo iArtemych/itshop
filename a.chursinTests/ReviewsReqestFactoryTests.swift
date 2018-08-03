@@ -4,8 +4,6 @@ import XCTest
 import OHHTTPStubs
 @testable import a_chursin
 
-
-
 class ReviewsReqestFactoryTests: XCTestCase
 {
     var reviews: ReviewsReqestFactory!
@@ -81,5 +79,4 @@ class ReviewsReqestFactoryTests: XCTestCase
         
         XCTAssertNotNil(reviewResult)
     }
-
 }

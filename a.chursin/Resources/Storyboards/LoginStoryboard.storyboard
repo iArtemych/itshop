@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3R1-RP-aTW">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="3R1-RP-aTW" customClass="LoginViewController" customModule="a_chursin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z7t-Y8-A2V">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6O-NW-Jsh">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebh-JS-ZIh" userLabel="wh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
@@ -29,32 +29,32 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sz0-VK-0fZ" userLabel="hh">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="812"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" id="Bul-B8-zYe"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dni-J2-9Ju">
-                                        <rect key="frame" x="161.5" y="155.5" width="52" height="24"/>
+                                        <rect key="frame" x="161.66666666666666" y="155.66666666666666" width="52" height="24"/>
                                         <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjc-wX-jdQ">
-                                        <rect key="frame" x="142.5" y="239" width="90" height="24"/>
+                                        <rect key="frame" x="142.66666666666666" y="239" width="90" height="24"/>
                                         <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ITshop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeA-1V-35O">
-                                        <rect key="frame" x="95.5" y="48" width="184.5" height="57.5"/>
+                                        <rect key="frame" x="95.666666666666671" y="48" width="184.33333333333331" height="57.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Verdana-BoldItalic" family="Verdana" pointSize="47"/>
                                         <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="0.92107593789797415" green="1" blue="0.93539772334484228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I2k-jW-GrI">
-                                        <rect key="frame" x="87.5" y="187" width="200" height="30"/>
+                                        <rect key="frame" x="87.666666666666686" y="187" width="200" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="iyR-DB-J0K"/>
                                         </constraints>
@@ -91,6 +91,14 @@
                                             <segue destination="LbK-xf-G80" kind="show" id="DQy-gJ-HNk"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-Ne-pwa">
+                                        <rect key="frame" x="13" y="8" width="46" height="33"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="17"/>
+                                        <state key="normal" title="Close"/>
+                                        <connections>
+                                            <segue destination="MTc-5H-WfX" kind="unwind" unwindAction="unwindFuncToUserDataWithUnwindSegue:" id="kWe-Yt-8ss"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.8447944847655422" green="0.91718223222016082" blue="0.8579301719110789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -98,6 +106,7 @@
                                     <constraint firstItem="ARl-th-CrM" firstAttribute="centerX" secondItem="N6O-NW-Jsh" secondAttribute="centerX" id="ASK-GX-q9Q"/>
                                     <constraint firstItem="I2k-jW-GrI" firstAttribute="top" secondItem="Dni-J2-9Ju" secondAttribute="bottom" constant="7.5" id="Esf-wY-5ke"/>
                                     <constraint firstItem="AEI-Gw-sRg" firstAttribute="centerX" secondItem="N6O-NW-Jsh" secondAttribute="centerX" id="JAX-mu-yZ8"/>
+                                    <constraint firstItem="x5H-Ne-pwa" firstAttribute="top" secondItem="Ebh-JS-ZIh" secondAttribute="bottom" constant="8" id="LGA-Hr-2Za"/>
                                     <constraint firstItem="g6p-PH-28c" firstAttribute="top" secondItem="ARl-th-CrM" secondAttribute="bottom" constant="20" id="Map-31-VaM"/>
                                     <constraint firstItem="sz0-VK-0fZ" firstAttribute="leading" secondItem="N6O-NW-Jsh" secondAttribute="leading" id="OHK-tM-OyE"/>
                                     <constraint firstAttribute="bottom" secondItem="sz0-VK-0fZ" secondAttribute="bottom" id="OWU-Zl-oxX"/>
@@ -111,6 +120,7 @@
                                     <constraint firstItem="g6p-PH-28c" firstAttribute="centerX" secondItem="N6O-NW-Jsh" secondAttribute="centerX" id="bfD-rL-6bV"/>
                                     <constraint firstItem="yjc-wX-jdQ" firstAttribute="top" secondItem="Dni-J2-9Ju" secondAttribute="bottom" constant="60" id="cgc-4m-q8B"/>
                                     <constraint firstAttribute="trailing" secondItem="Ebh-JS-ZIh" secondAttribute="trailing" id="fQn-wI-XJZ"/>
+                                    <constraint firstItem="x5H-Ne-pwa" firstAttribute="leading" secondItem="sz0-VK-0fZ" secondAttribute="trailing" constant="13" id="gIQ-z6-uro"/>
                                     <constraint firstItem="ARl-th-CrM" firstAttribute="top" secondItem="AEI-Gw-sRg" secondAttribute="bottom" constant="7" id="gOB-zO-XDN"/>
                                     <constraint firstItem="Ebh-JS-ZIh" firstAttribute="top" secondItem="N6O-NW-Jsh" secondAttribute="top" id="o5H-Z0-64T"/>
                                     <constraint firstItem="yjc-wX-jdQ" firstAttribute="centerX" secondItem="N6O-NW-Jsh" secondAttribute="centerX" id="vIs-UZ-5J2"/>
@@ -133,28 +143,21 @@
                         <outlet property="loginLable" destination="I2k-jW-GrI" id="cKN-uw-fTY"/>
                         <outlet property="passwordLable" destination="AEI-Gw-sRg" id="hlQ-5V-o7a"/>
                         <outlet property="scrollView" destination="N6O-NW-Jsh" id="mRM-1o-6eW"/>
-                        <segue destination="ANm-zd-amM" kind="show" identifier="loginSuccess" id="fKA-rt-tNQ"/>
+                        <segue destination="MTc-5H-WfX" kind="unwind" identifier="loginSuccess" unwindAction="unwindFuncToUserDataWithUnwindSegue:" id="Gkj-bl-fEF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzW-zY-oyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="MTc-5H-WfX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-151.19999999999999" y="58.920539730134934"/>
         </scene>
-        <!--AccauntDataStoryboard-->
-        <scene sceneID="Gm2-3A-1Uo">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AccauntDataStoryboard" id="ANm-zd-amM" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mtW-cV-nae" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="680" y="-6"/>
-        </scene>
-        <!--RegisterStoryboard-->
+        <!--AccauntEditStoryboard-->
         <scene sceneID="ijd-RF-CfX">
             <objects>
-                <viewControllerPlaceholder storyboardName="RegisterStoryboard" id="LbK-xf-G80" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AccauntEditStoryboard" id="LbK-xf-G80" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jj1-Du-SYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682" y="151"/>
+            <point key="canvasLocation" x="599" y="58"/>
         </scene>
     </scenes>
 </document>

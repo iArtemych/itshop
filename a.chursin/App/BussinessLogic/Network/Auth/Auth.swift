@@ -10,9 +10,9 @@ class Auth: BaseRequestFactory, AuthRequestFactory
         self.request(reques: requestModel, completionHandler: comletionHandler)
     }
     
-    func logout(userData: UserData, comletionHandler: @escaping (DataResponse<LogoutResult>) -> Void)
+    func logout(idUser: Int, comletionHandler: @escaping (DataResponse<LogoutResult>) -> Void)
     {
-        let requestModel = Logout(baseURL: baseUrl, userData: userData)
+        let requestModel = Logout(baseURL: baseUrl, idUser: idUser)
         self.request(reques: requestModel, completionHandler: comletionHandler)
     }
 }
@@ -42,10 +42,10 @@ extension Auth
         let baseURL: URL
         let method: HTTPMethod = .get
         let path: String = "logout.json"
-        let userData: UserData
+        let idUser: Int
         
         var parameters: Parameters? {
-            return ["id_user": userData.id]
+            return ["id_user": idUser]
         }
     }
 }

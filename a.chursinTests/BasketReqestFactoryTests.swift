@@ -4,8 +4,6 @@ import XCTest
 import OHHTTPStubs
 @testable import a_chursin
 
-
-
 class BasketReqestFactoryTests: XCTestCase
 {
     var basket: BasketReqestFactory!
@@ -82,6 +80,4 @@ class BasketReqestFactoryTests: XCTestCase
         
         XCTAssertNotNil(basketResult)
     }
-    
-    
 }

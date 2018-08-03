@@ -4,8 +4,6 @@ import XCTest
 import OHHTTPStubs
 @testable import a_chursin
 
-
-
 class AccauntRequestFactoryTests: XCTestCase
 {
     var accaunt: AccauntRequestFactory!
@@ -41,7 +39,6 @@ class AccauntRequestFactoryTests: XCTestCase
             registerResult = result.value
             exp.fulfill()
         }
-        
         wait(for: [exp], timeout: 1)
         
         XCTAssertNotNil(registerResult)
@@ -60,11 +57,8 @@ class AccauntRequestFactoryTests: XCTestCase
             changeResult = result.value
             exp.fulfill()
         }
-        
         wait(for: [exp], timeout: 1)
         
         XCTAssertNotNil(changeResult)
     }
-    
-    
 }

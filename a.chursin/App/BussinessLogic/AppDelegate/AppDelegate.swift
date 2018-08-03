@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  a.chursin
-//
-//  Created by Артем Чурсин on 02.07.2018.
-//  Copyright © 2018 Артем Чурсин. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
@@ -15,7 +7,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let requestFactory = RequestFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         return true
     }
 

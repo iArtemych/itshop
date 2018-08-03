@@ -14,7 +14,6 @@ struct PostStub: Codable
 
 class ResponseCodableTests: XCTestCase
 {
-    
     var errorParser: ErrorParser​Stub!
     
     override func setUp()
@@ -34,11 +33,8 @@ class ResponseCodableTests: XCTestCase
     func testShouldDownloadAndParse()
     {
         let exp = expectation(description: "something")
-        
-        
         var post: PostStub?
-        
-        
+
         Alamofire
                 .request("https://jsonplaceholder.typicode.com/posts/1")
                 .responseCodable(errorParser: errorParser) {(response: DataResponse<PostStub>) in
@@ -46,11 +42,8 @@ class ResponseCodableTests: XCTestCase
                 exp.fulfill()
         }
         wait(for: [exp], timeout: 1)
-        
         XCTAssertNotNil(post)
     }
-    
-    
 }
 
 

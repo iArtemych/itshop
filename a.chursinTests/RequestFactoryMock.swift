@@ -23,7 +23,9 @@ class RequestFactoryMock
         let manager = SessionManager(configuration: configuration)
         return manager
     }()
+    
     let sessionQueue = DispatchQueue.global(qos: .utility)
+    
     func makeAuthRequestFactory() -> AuthRequestFactory
     {
         let errorParser = makeErrorParser()
@@ -33,6 +35,7 @@ class RequestFactoryMock
             queue: sessionQueue
         )
     }
+    
     func makeAccauntRequestFactory() -> AccauntRequestFactory
     {
         let errorParser = makeErrorParser()
@@ -42,6 +45,7 @@ class RequestFactoryMock
             queue: sessionQueue
         )
     }
+    
     func makeProductRequestFactory() -> ProductRequestFactory
     {
         let errorParser = makeErrorParser()
@@ -51,6 +55,7 @@ class RequestFactoryMock
             queue: sessionQueue
         )
     }
+    
     func makeReviewRequestFactory() -> ReviewsReqestFactory
     {
         let errorParser = makeErrorParser()
@@ -60,6 +65,7 @@ class RequestFactoryMock
             queue: sessionQueue
         )
     }
+    
     func makeBasketRequestFactory() -> BasketReqestFactory
     {
         let errorParser = makeErrorParser()
@@ -69,5 +75,4 @@ class RequestFactoryMock
             queue: sessionQueue
         )
     }
-    
 }

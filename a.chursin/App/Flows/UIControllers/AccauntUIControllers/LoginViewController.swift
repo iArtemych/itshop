@@ -1,34 +1,33 @@
 import UIKit
 
-class RegisterViewController: UIViewController
+class LoginViewController: UIViewController
 {
     //MARK: - Constants
     let requestFactory = RequestFactory()
     let alertFactory = AlertFactory()
+    let userDefaults = UserDefaults.standard
+    
+    //MARK: - Variables
+    var user: User!
+    
     //MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var loginInput: UITextField!
-    @IBOutlet weak var passwordInput: UITextField!
-    @IBOutlet weak var genderSegmented: UISegmentedControl!
-    @IBOutlet weak var emailInput: UITextField!
-    @IBOutlet weak var creditCardInput: UITextField!
-    @IBOutlet weak var aboutInput: UITextView!
-    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginLable: UITextField!
+    @IBOutlet weak var passwordLable: UITextField!
     
     //MARK: - LifeStyle ViewController
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
         hideGestureRecognizer()
-
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(true)
-        
+
         notificationKeyboardSubscribe()
     }
     
@@ -38,28 +37,64 @@ class RegisterViewController: UIViewController
         
         notificationKeyboardUnsubscribe()
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        
     }
     
     //MARK: - Navigation
-    //TODO: gender доделать
-    @IBAction func registerActionButton(_ sender: Any)
+    @IBAction func unwindFunctoLogin(unwindSegue: UIStoryboardSegue)
     {
-        let segueIdentifier = "registerEnd"
+    }
+    
+    @IBAction func loginAction(_ sender: Any)
+    {
+        
+        let login = loginLable.text!
+        let password = passwordLable.text!
+        userlogin(login: login, password: password)
+    }
 
-        registration() { [weak self] registrResult in
-            if registrResult
+    //MARK: - Private methods
+    private func authorization(login: String, password: String, completionHandler: @escaping ((responseResult: Int, userResult: User)) -> Void)
+    {
+        let auth = requestFactory.makeAuthRequestFactory()
+    
+        auth.login(login: login, password: password){ response in
+            switch response.result
             {
+            case .success(let login):
+                DispatchQueue.main.async {
+                    completionHandler((login.result,
+                                       login.user))
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func userlogin(login: String, password: String)
+    {
+        let segueIdentifier = "loginSuccess"
+        
+        userDefaults.set(login, forKey: "login")
+        userDefaults.set(password, forKey: "password")
+        
+        authorization(login: login, password: password) { [weak self] loginRusult in
+            if loginRusult.responseResult == 1
+            {
+                self?.userDefaults.set(loginRusult.userResult.id, forKey: "userId")
+                self?.userDefaults.set(loginRusult.userResult.name, forKey: "userName")
+                self?.userDefaults.set(loginRusult.userResult.lastname, forKey: "userLastName")
+                
                 self?.performSegue(withIdentifier: segueIdentifier, sender: nil)
             }
             else
             {
                 let title = "Error"
-                let massage = "Incorrect data!"
+                let massage = "Incorrect password or login!"
                 let button = "Ok"
                 self?.alertFactory.singlButtonAlert(alertTitle: title,
                                                     alertMassage: massage,
@@ -68,9 +103,8 @@ class RegisterViewController: UIViewController
             }
         }
     }
-    
-    //MARK: - Private methods
-    
+        
+    //MARK: - Keyboard methods
     //когда клавиатура появляется
     @objc private func keyboardWasShown(notification: Notification)
     {
@@ -98,7 +132,6 @@ class RegisterViewController: UIViewController
         self.scrollView?.endEditing(true)
     }
     
-    
     private func notificationKeyboardSubscribe()
     {
         //Подписываемся на два уведомления, одно приходит при появляении клавиатуры
@@ -107,11 +140,11 @@ class RegisterViewController: UIViewController
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
+    
     private func notificationKeyboardUnsubscribe()
     {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
     }
     
     private func hideGestureRecognizer()
@@ -119,37 +152,7 @@ class RegisterViewController: UIViewController
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
     }
-
-    private func registration(completion: @escaping (Bool) -> Void)
-    {
-        let randomCount = Int(arc4random_uniform(UInt32(2000)))
-        let registr = requestFactory.makeAccauntRequestFactory()
-        var registrResult = false
-        let userData: UserData!
-        
-        if let login = loginInput.text,
-            let password = passwordInput.text,
-            let email = emailInput.text,
-            let creditCard = creditCardInput.text,
-            let bio = aboutInput.text
-        {
-            userData = UserData(id: randomCount, username: login, password: password, email: email, gender: "M", creditCard: creditCard, bio: bio)
-        
-        
-        registr.register(userData: userData){ response in
-            
-            switch response.result
-            {
-            case .success:
-                registrResult = true
-            case .failure:
-                registrResult = false
-            }
-            DispatchQueue.main.async {
-                completion(registrResult)
-            }
-        }
-        }
-    }
-    
 }
+
+
+

@@ -16,7 +16,7 @@ struct GoodsResult: Codable
     }
 }
 
-struct ItemResult : Codable
+struct ItemResult: Codable
 {
     let result: Int
     let productName: String
