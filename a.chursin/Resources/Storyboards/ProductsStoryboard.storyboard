@@ -85,10 +85,13 @@
                     <navigationItem key="navigationItem" title="ITShop" id="Cks-O2-TfT">
                         <barButtonItem key="rightBarButtonItem" title="Basket" id="8kV-4G-8id">
                             <connections>
-                                <segue destination="u6p-fC-Ui4" kind="show" id="IdF-uq-gNm"/>
+                                <action selector="toBasketAction:" destination="5su-qR-fdw" id="wwS-NS-I27"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="u6p-fC-Ui4" kind="show" identifier="toBasket" id="a5b-sh-3DW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEm-0m-O9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

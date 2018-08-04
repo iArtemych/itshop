@@ -49,7 +49,7 @@ class ProductRequestFactoryTests: XCTestCase
     
     func testGood()
     {
-        let exp = expectation(description: "")
+        let exp = expectation(description: "123")
         
         OHHTTPStubsResponse.stubHelper(pathEnd: "getGoodById.json", file: "Item")
         

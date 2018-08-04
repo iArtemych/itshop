@@ -5,9 +5,10 @@ class GoodsListTableViewController: UITableViewController {
     //MARK: - Constants
     let requestFactory = RequestFactory()
     let alertFactory = AlertFactory()
-    var itemRequest: ItemRequest!
+    let userDefaults = UserDefaults.standard
     
     //MARK: - Variables
+    var itemRequest: ItemRequest!
     private var goodsArr: [GoodsResult] = []
     
     //MARK: - LifeStyle ViewController
@@ -48,6 +49,13 @@ class GoodsListTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
+    
+    @IBAction func toBasketAction(_ sender: Any)
+    {
+        checkRegistration()
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if  segue.identifier == "productPage"
@@ -61,6 +69,25 @@ class GoodsListTableViewController: UITableViewController {
     }
     
     //MARK: - Private methods
+    
+    //Check for registration
+    private func checkRegistration()
+    {
+        let idUser = userDefaults.integer(forKey: "userId")
+        if idUser > 0
+        {
+            let segueIdentifier = "toBasket"
+            performSegue(withIdentifier: segueIdentifier, sender: nil)
+        }
+        else
+        {
+            let titlet = "Error"
+            let massage = "Log in to use basket"
+            let button = "Ok"
+            alertFactory.singlButtonAlert(alertTitle: titlet, alertMassage: massage, alertButton: button, controller: self)
+        }
+    }
+    
     private func goodList(completion: @escaping ([GoodsResult]) -> Void)
     {
         itemRequest = ItemRequest(pageNumber: 1, idCategory: 1)

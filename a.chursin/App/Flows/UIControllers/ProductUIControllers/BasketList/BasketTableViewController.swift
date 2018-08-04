@@ -5,11 +5,12 @@ class BasketTableViewController: UITableViewController {
     //MARK: - Constants
     let requestFactory = RequestFactory()
     let alertFactory = AlertFactory()
-    let idUser: Int = 1
+    let userDefaults = UserDefaults.standard
     
     //MARK: - Variables
     private var price: Int = 0
     private var count: Int = 0
+    private var idUser: Int = 0
     private var basketArr: [BasketContents] = []
     private var removedGood: BasketRemoveResult!
     
@@ -21,6 +22,7 @@ class BasketTableViewController: UITableViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        idUser = userDefaults.integer(forKey: "userId")
         goodsTable()
     }
 
