@@ -6,7 +6,7 @@ private enum AuthFlag
     case isNotAuth
 }
 
-class RegisterViewController: UIViewController
+class RegisterViewController: UIViewController, TrackableMixin
 {
     //MARK: - Constants
     let requestFactory = RequestFactory()
@@ -102,6 +102,7 @@ class RegisterViewController: UIViewController
             }
             else
             {
+                
                 let title = "Error"
                 let massage = "Incorrect data!"
                 let button = "Ok"
@@ -110,6 +111,8 @@ class RegisterViewController: UIViewController
                                                     alertButton: button,
                                                     controller: self!)
             }
+            self?.tracking(result: registrResult)
+
         }
     }
     
@@ -209,6 +212,11 @@ class RegisterViewController: UIViewController
             }
         }
     }
+    func tracking(result: Bool)
+    {
+        track(.logSignUp(method: "registerUserData", success: result))
+    }
+    
     
     
     //MARK: - Keyboard methods

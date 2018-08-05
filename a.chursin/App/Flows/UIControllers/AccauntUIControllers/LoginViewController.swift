@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController
+class LoginViewController: UIViewController, TrackableMixin
 {
     //MARK: - Constants
     let requestFactory = RequestFactory()
@@ -101,6 +101,7 @@ class LoginViewController: UIViewController
                                                     alertButton: button,
                                                     controller: self!)
             }
+            self?.tracking(result: loginRusult.responseResult)
         }
     }
         
@@ -151,6 +152,18 @@ class LoginViewController: UIViewController
     {
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
+    }
+    
+    func tracking(result: Int)
+    {
+        if result == 1
+        {
+            track(.login(method: "Login", success: true))
+        }
+        else
+        {
+            track(.login(method: "Login", success: false))
+        }
     }
 }
 

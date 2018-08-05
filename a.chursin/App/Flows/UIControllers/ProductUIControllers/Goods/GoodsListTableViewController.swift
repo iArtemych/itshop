@@ -1,6 +1,8 @@
 import UIKit
+import Crashlytics
 
-class GoodsListTableViewController: UITableViewController {
+class GoodsListTableViewController: UITableViewController, ProductTrackableMixin
+{
     
     //MARK: - Constants
     let requestFactory = RequestFactory()
@@ -40,6 +42,7 @@ class GoodsListTableViewController: UITableViewController {
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "goodsCell", for: indexPath) as! GoodsListTableViewCell
         
+        tracking()
         let good = goodsArr[indexPath.row]
         cell.goodName.text = good.productName
         cell.goodPrice.text = String(good.price)
@@ -113,5 +116,9 @@ class GoodsListTableViewController: UITableViewController {
             self?.goodsArr = arr
             self?.tableView.reloadData()
         }
+    }
+    func tracking()
+    {
+        track(.presentProductsList)
     }
 }

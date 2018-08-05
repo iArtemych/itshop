@@ -67,6 +67,8 @@
 		02AC047E20EA84DA00E4E375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC047D20EA84DA00E4E375 /* AppDelegate.swift */; };
 		02AC048520EA84DB00E4E375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02AC048420EA84DB00E4E375 /* Assets.xcassets */; };
 		02AC048820EA84DB00E4E375 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AC048620EA84DB00E4E375 /* LaunchScreen.storyboard */; };
+		02D0D6482115E2CB00638811 /* TrackableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D0D6472115E2CB00638811 /* TrackableMixin.swift */; };
+		02D0D64A2115EC0100638811 /* ProductTrackableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D0D6492115EC0100638811 /* ProductTrackableMixin.swift */; };
 		02DFC5F0211482FB00453192 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFC5EF211482FB00453192 /* ReviewTableViewController.swift */; };
 		02DFC5F22114831600453192 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFC5F12114831600453192 /* ReviewTableViewCell.swift */; };
 		02DFC5F421148FE400453192 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFC5F321148FE400453192 /* AddReviewViewController.swift */; };
@@ -163,6 +165,8 @@
 		02AC049420EA84DB00E4E375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02AC049920EA84DB00E4E375 /* a.chursinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = a.chursinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02AC049F20EA84DB00E4E375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02D0D6472115E2CB00638811 /* TrackableMixin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackableMixin.swift; sourceTree = "<group>"; };
+		02D0D6492115EC0100638811 /* ProductTrackableMixin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTrackableMixin.swift; sourceTree = "<group>"; };
 		02DFC5EF211482FB00453192 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
 		02DFC5F12114831600453192 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		02DFC5F321148FE400453192 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
@@ -500,6 +504,7 @@
 		02AC04B020EA963200E4E375 /* BussinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				02D0D6462115E28500638811 /* Fabric */,
 				02A42C3820FB702C0087512A /* Network */,
 				02AC04B120EA966000E4E375 /* AppDelegate */,
 			);
@@ -512,6 +517,15 @@
 				02AC047D20EA84DA00E4E375 /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		02D0D6462115E28500638811 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				02D0D6472115E2CB00638811 /* TrackableMixin.swift */,
+				02D0D6492115EC0100638811 /* ProductTrackableMixin.swift */,
+			);
+			path = Fabric;
 			sourceTree = "<group>";
 		};
 		281E4367BDFB56599EDB1750 /* Frameworks */ = {
@@ -549,6 +563,7 @@
 				02AC047720EA84DA00E4E375 /* Frameworks */,
 				02AC047820EA84DA00E4E375 /* Resources */,
 				DD969A66C65C51039DDB576A /* [CP] Embed Pods Frameworks */,
+				0208B1142115D13A00EC1D8E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -686,6 +701,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0208B1142115D13A00EC1D8E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" bbbaf74b770e073b3f584371067f6f2ba5524c0c 1e75a51e5f3f75346b76844b2b0f2fc95687bd9807801336d7cf57acdafbc67a";
+		};
 		0F07F54E5E784EABB430EB1A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -749,11 +777,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-a.chursin/Pods-a.chursin-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-16/iOS/RevealServer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -780,6 +810,7 @@
 				02FBD78E2100B0B3002FD9F0 /* Accaunt.swift in Sources */,
 				02A42C3220FA27F00087512A /* RequestRouter.swift in Sources */,
 				02A42C2D20FA19A30087512A /* ResponseCodable.swift in Sources */,
+				02D0D6482115E2CB00638811 /* TrackableMixin.swift in Sources */,
 				02DFC5F421148FE400453192 /* AddReviewViewController.swift in Sources */,
 				02A42C2B20FA13870087512A /* ErrorParser.swift in Sources */,
 				029A5AC0211069AD00CAE165 /* LoginViewController.swift in Sources */,
@@ -796,6 +827,7 @@
 				02A42C3F20FB7A110087512A /* RequestFactory.swift in Sources */,
 				024F51E7210C689500AE51CA /* ReviewsReqestFactory.swift in Sources */,
 				02677711210C888000E7DC95 /* Basket.swift in Sources */,
+				02D0D64A2115EC0100638811 /* ProductTrackableMixin.swift in Sources */,
 				02A42C3A20FB704C0087512A /* AuthRequestFactory.swift in Sources */,
 				025CFC6D2113539E007FBC08 /* GoodsListTableViewController.swift in Sources */,
 				024F51E5210C688300AE51CA /* Reviews.swift in Sources */,

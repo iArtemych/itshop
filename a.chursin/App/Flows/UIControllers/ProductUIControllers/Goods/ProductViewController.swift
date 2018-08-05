@@ -6,7 +6,7 @@ enum basketFlag
     case isNotInBasket
 }
 
-class ProductViewController: UIViewController
+class ProductViewController: UIViewController, ProductTrackableMixin
 {
     //MARK: - Constants
     let requestFactory = RequestFactory()
@@ -86,12 +86,14 @@ class ProductViewController: UIViewController
                 
                 if self?.addedGood.result == 1
                 {
+                    self?.addBasket()
                     let buttonTitle = "Remove from basket"
                     self?.productAddToBasket.setTitle(buttonTitle, for: .normal)
                     self?.isAddedInBasket = .inBasket
                 }
                 else
                 {
+                    self?.addBasket()
                     self?.alertFactory.singlButtonAlert(alertTitle: "Error",
                                                         alertMassage: "Error with add to basket",
                                                         alertButton: "Ok",
@@ -106,12 +108,14 @@ class ProductViewController: UIViewController
                 
                 if self?.removedGood.result == 1
                 {
+                    self?.removeBasket()
                     let buttonTitle = "Add to basket"
                     self?.productAddToBasket.setTitle(buttonTitle, for: .normal)
                     self?.isAddedInBasket = .isNotInBasket
                 }
                 else
                 {
+                    self?.removeBasket()
                     self?.alertFactory.singlButtonAlert(alertTitle: "Error",
                                                         alertMassage: "Error with remove from basket",
                                                         alertButton: "Ok",
@@ -148,11 +152,38 @@ class ProductViewController: UIViewController
     
     private func printProduct()
     {
+        trackingPresent()
         let stub = "\nНИЧТО НЕ ПОМЕШАЕТ ИГРЕ \nРазрешение Full HD 1920x1080 пикселей позволяет видеть все детали даже в процессе динамичной игры. За счёт антибликового покрытия внешний источник света никак не влияет на видимость картинки. Также на нём меньше заметны отпечатки пальцев."
         productImage.image = #imageLiteral(resourceName: "Book")
         productName.text = "Name: " + productCart.productName
         productPrice.text = "Price: " + String(productCart.productPrice) + "$"
         productDescription.text = productCart.productDescription + stub
         self.navigationItem.title = productCart.productName
+    }
+    func toBool(number: Int) -> Bool
+    {
+        switch number {
+        case 0:
+            return false
+        case 1:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func trackingPresent()
+    {
+        track(.presentProduct(contentType: productCart.productName, contentId: String(productId)))
+    }
+    
+    func removeBasket()
+    {
+        track(.removeFromBasket(success: toBool(number: removedGood.result)))
+    }
+    
+    func addBasket()
+    {
+        track(.addToBasket(success: toBool(number: addedGood.result)))
     }
 }

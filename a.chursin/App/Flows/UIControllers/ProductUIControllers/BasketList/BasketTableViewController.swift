@@ -1,6 +1,7 @@
 import UIKit
 
-class BasketTableViewController: UITableViewController {
+class BasketTableViewController: UITableViewController, ProductTrackableMixin
+{
 
     //MARK: - Constants
     let requestFactory = RequestFactory()
@@ -78,6 +79,7 @@ class BasketTableViewController: UITableViewController {
                                                         alertButton: "Ok",
                                                         controller: self!)
                 }
+                self?.trackingRemove()
             }
         }
     }
@@ -144,7 +146,22 @@ class BasketTableViewController: UITableViewController {
                                        alertOKButton: okButton,
                                        alertCancelButton: noButton,
                                        controller: self)
-        print(purchaseAns)
+        trackingPurchase(purchaseAns: purchaseAns)
+    }
+    func trackingPurchase(purchaseAns: Bool)
+    {
+        track(.payBasket(success: purchaseAns))
+    }
+    func trackingRemove()
+    {
+        if removedGood.result == 1
+        {
+            track(.removeFromBasket(success: true))
+        }
+        else
+        {
+            track(.removeFromBasket(success: false))
+        }
     }
     
 }

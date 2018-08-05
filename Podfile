@@ -8,6 +8,9 @@ target 'a.chursin' do
 
   pod 'Alamofire', '~> 4.7'
   pod 'OHHTTPStubs/Swift'
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'Reveal-SDK', configurations: ['Debug']
 
   target 'a.chursinTests' do
     inherit! :search_paths

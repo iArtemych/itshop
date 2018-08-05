@@ -6,7 +6,7 @@ private enum AuthFlag
     case isNotAuth
 }
 
-class AccauntDataViewController: UIViewController
+class AccauntDataViewController: UIViewController, TrackableMixin
 {
     //MARK: - Constants
     let requestFactory = RequestFactory()
@@ -71,6 +71,7 @@ class AccauntDataViewController: UIViewController
         deauthorization() { [weak self] logoutResult in
             if logoutResult
             {
+                self?.tracking()
                 self?.removeUser()
                 self?.performSegue(withIdentifier: segueIdentifier, sender: nil)
             }
@@ -167,6 +168,10 @@ class AccauntDataViewController: UIViewController
                 completion(logoutResult)
             }
         }
+    }
+    func tracking()
+    {
+        track(.logout)
     }
 }
 

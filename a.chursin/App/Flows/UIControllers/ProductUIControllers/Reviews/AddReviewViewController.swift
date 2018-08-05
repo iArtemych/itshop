@@ -6,7 +6,7 @@ private enum AuthFlag
     case isNotAuth
 }
 
-class AddReviewViewController: UIViewController
+class AddReviewViewController: UIViewController, TrackableMixin
 {
     //MARK: - Constants
     let requestFactory = RequestFactory()
@@ -41,7 +41,7 @@ class AddReviewViewController: UIViewController
         checkReview()
         if isAuthtorizaytion == .isAuth
         {
-            productPage()
+            reviewPage()
         }
     }
     //MARK: - Private methods
@@ -95,7 +95,7 @@ class AddReviewViewController: UIViewController
         }
     }
     
-    private func productPage()
+    private func reviewPage()
     {
         reviewReq(){ [weak self] review in
             self?.reviewCart = review
@@ -105,11 +105,16 @@ class AddReviewViewController: UIViewController
                 let massage = "Feedback sent for moderation"
                 let button = "Ok"
                 
+                self?.tracking()
                 self?.alertFactory.singlButtonAlert(alertTitle: title,
                                                     alertMassage: massage,
                                                     alertButton: button,
                                                     controller: self!)
             }
         }
+    }
+    func tracking()
+    {
+        track(.addReview())
     }
 }
