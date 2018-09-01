@@ -37,7 +37,6 @@ class AccauntDataViewController: UIViewController, TrackableMixin
         printUser()
     }
     
-
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
