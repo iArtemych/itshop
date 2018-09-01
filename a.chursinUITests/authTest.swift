@@ -3,10 +3,13 @@ import XCTest
 class authTest: XCTestCase
 {
     var app: XCUIApplication!
-        
+    
     override func setUp()
     {
         super.setUp()
+        
+        app = XCUIApplication()
+        setupSnapshot(app)
         
         continueAfterFailure = false
 
